@@ -20,9 +20,10 @@
                             <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                                 {{ __('Users') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
-                                {{ __('Products') }}
+                            <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                                {{ __('Categories') }}
                             </x-nav-link>
+
                             <x-nav-link href="#">
                                 {{ __('Newsletters') }}
                             </x-nav-link>
@@ -152,11 +153,11 @@
                     <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                         {{ __('Dashboard') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">
                         {{ __('Users') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
-                        {{ __('Products') }}
+                    <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
+                        {{ __('Categories') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
                         {{ __('Newsletters') }}
