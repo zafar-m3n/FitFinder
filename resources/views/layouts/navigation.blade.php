@@ -26,8 +26,7 @@
                             <x-nav-link :href="route('admin.newsletters.index')" :active="request()->routeIs('admin.newsletters.index')">
                                 {{ __('Newsletters') }}
                             </x-nav-link>
-
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('admin.promotions.index')" :active="request()->routeIs('admin.promotions.index')">
                                 {{ __('Promotions') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'customer')
@@ -162,7 +161,7 @@
                     <x-responsive-nav-link :href="route('admin.newsletters.index')" :active="request()->routeIs('admin.newsletters.index')">
                         {{ __('Newsletters') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('admin.promotions.index')" :active="request()->routeIs('admin.promotions.index')">
                         {{ __('Promotions') }}
                     </x-responsive-nav-link>
                 @elseif (Auth::user()->role === 'Customer')
