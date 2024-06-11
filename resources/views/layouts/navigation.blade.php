@@ -23,10 +23,10 @@
                             <x-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
                                 {{ __('Categories') }}
                             </x-nav-link>
-
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('admin.newsletters.index')" :active="request()->routeIs('admin.newsletters.index')">
                                 {{ __('Newsletters') }}
                             </x-nav-link>
+
                             <x-nav-link href="#">
                                 {{ __('Promotions') }}
                             </x-nav-link>
@@ -159,7 +159,7 @@
                     <x-responsive-nav-link :href="route('admin.categories.index')" :active="request()->routeIs('admin.categories.index')">
                         {{ __('Categories') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('admin.newsletters.index')" :active="request()->routeIs('admin.newsletters.index')">
                         {{ __('Newsletters') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
