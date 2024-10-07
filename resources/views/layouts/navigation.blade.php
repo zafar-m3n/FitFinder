@@ -53,6 +53,9 @@
                                 {{ __('Products') }}
                             </x-nav-link>
                             <x-nav-link href="#">
+                                {{ __('Orders') }}
+                            </x-nav-link>
+                            <x-nav-link href="#">
                                 {{ __('About') }}
                             </x-nav-link>
                         @endif
@@ -183,6 +186,9 @@
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
                         {{ __('Products') }}
+                    </x-responsive-nav-link>
+                    <x-responsive-nav-link href="#">
+                        {{ __('Orders') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
                         {{ __('About') }}
