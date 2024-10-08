@@ -49,7 +49,7 @@
                             <x-nav-link :href="route('clothingbusiness.home')" :active="request()->routeIs('clothingbusiness.home')">
                                 {{ __('Home') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link href="{{ route('clothingbusiness.products.index') }}" :active="request()->routeIs('clothingbusiness.products.index')">
                                 {{ __('Products') }}
                             </x-nav-link>
                             <x-nav-link href="#">
