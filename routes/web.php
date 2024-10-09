@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
+use App\Http\Controllers\ClothingBusiness\OrderController as ClothingBusinessOrderController;
 use App\Http\Controllers\Customer\CustomerProductController;
 use App\Http\Controllers\Customer\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,8 @@ Route::middleware(['auth', 'role:clothingbusiness'])->prefix('clothingbusiness')
     Route::resource('products', ProductController::class);
     Route::get('/about/edit', [AboutController::class, 'edit'])->name('about.edit');
     Route::post('/about/update', [AboutController::class, 'update'])->name('about.update');
+    Route::get('/orders', [ClothingBusinessOrderController::class, 'index'])->name('orders.index');
+    Route::patch('/orders/{order}/status', [ClothingBusinessOrderController::class, 'updateStatus'])->name('orders.updateStatus');
 });
 
 Route::middleware('auth')->group(function () {

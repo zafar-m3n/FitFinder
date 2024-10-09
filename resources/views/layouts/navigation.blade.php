@@ -49,7 +49,7 @@
                             <x-nav-link href="{{ route('clothingbusiness.products.index') }}" :active="request()->routeIs('clothingbusiness.products.index')">
                                 {{ __('Products') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link href="{{ route('clothingbusiness.orders.index') }}" :active="request()->routeIs('clothingbusiness.orders.index')">
                                 {{ __('Orders') }}
                             </x-nav-link>
                             <x-nav-link href="{{ route('clothingbusiness.about.edit') }}" :active="request()->routeIs('clothingbusiness.about.edit')">
@@ -181,7 +181,7 @@
                     <x-responsive-nav-link href="{{ route('clothingbusiness.products.index') }}" :active="request()->routeIs('clothingbusiness.products.index')">
                         {{ __('Products') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link href="{{ route('clothingbusiness.orders.index') }}" :active="request()->routeIs('clothingbusiness.orders.index')">
                         {{ __('Orders') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="{{ route('clothingbusiness.about.edit') }}" :active="request()->routeIs('clothingbusiness.about.edit')">
