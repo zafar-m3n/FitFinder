@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
+use App\Http\Controllers\Customer\CustomerProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,10 +38,12 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 
 
-Route::middleware(['auth', 'role:customer'])->group(function () {
-    Route::get('/customer/home', function () {
+Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer.')->group(function () {
+    Route::get('/home', function () {
         return view('customer.home');
-    })->name('customer.home');
+    })->name('home');
+    Route::get('/products', [CustomerProductController::class, 'index'])->name('products.index');
+    Route::get('/products/{product}', [CustomerProductController::class, 'show'])->name('products.show');
 });
 
 Route::middleware(['auth', 'role:clothingbusiness'])->prefix('clothingbusiness')->name('clothingbusiness.')->group(function () {

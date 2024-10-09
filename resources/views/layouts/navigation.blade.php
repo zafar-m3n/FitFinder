@@ -36,7 +36,7 @@
                             <x-nav-link href="#">
                                 {{ __('Preferences') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                                 {{ __('Products') }}
                             </x-nav-link>
                             <x-nav-link href="#">
@@ -66,7 +66,7 @@
                         <x-nav-link href="#">
                             {{ __('Preferences') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
+                        <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                             {{ __('Products') }}
                         </x-nav-link>
                         <x-nav-link href="#">
@@ -171,7 +171,7 @@
                     <x-responsive-nav-link href="#">
                         {{ __('Preferences') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                         {{ __('Products') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
@@ -201,7 +201,7 @@
                 <x-responsive-nav-link href="#">
                     {{ __('Preferences') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
+                <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                     {{ __('Products') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link href="#">
