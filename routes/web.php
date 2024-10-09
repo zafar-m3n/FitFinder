@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
+use App\Http\Controllers\ClothingBusiness\AboutController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -48,6 +49,8 @@ Route::middleware(['auth', 'role:clothingbusiness'])->prefix('clothingbusiness')
     })->name('home');
 
     Route::resource('products', ProductController::class);
+    Route::get('/about/edit', [AboutController::class, 'edit'])->name('about.edit');
+    Route::post('/about/update', [AboutController::class, 'update'])->name('about.update');
 });
 
 Route::middleware('auth')->group(function () {

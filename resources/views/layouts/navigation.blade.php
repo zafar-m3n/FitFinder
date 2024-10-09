@@ -55,7 +55,7 @@
                             <x-nav-link href="#">
                                 {{ __('Orders') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link href="{{ route('clothingbusiness.about.edit') }}" :active="request()->routeIs('clothingbusiness.about.edit')">
                                 {{ __('About') }}
                             </x-nav-link>
                         @endif
@@ -184,13 +184,13 @@
                     <x-responsive-nav-link :href="route('clothingbusiness.home')" :active="request()->routeIs('clothingbusiness.home')">
                         {{ __('Home') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link href="{{ route('clothingbusiness.products.index') }}" :active="request()->routeIs('clothingbusiness.products.index')">
                         {{ __('Products') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
                         {{ __('Orders') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link href="{{ route('clothingbusiness.about.edit') }}" :active="request()->routeIs('clothingbusiness.about.edit')">
                         {{ __('About') }}
                     </x-responsive-nav-link>
                 @endif
