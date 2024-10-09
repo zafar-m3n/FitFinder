@@ -25,7 +25,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="#"
+                                    <a href="{{ route('customer.orders.index') }}"
                                         class="rounded bg-green-500 px-4 py-2 text-white hover:bg-green-600">Go to
                                         Orders</a>
                                 </div>
@@ -46,7 +46,7 @@
                                     </div>
                                 </div>
                                 <div class="mt-4">
-                                    <a href="#"
+                                    <a href="{{ route('customer.products.index') }}"
                                         class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">Shop Now</a>
                                 </div>
                             </div>
@@ -79,89 +79,57 @@
                         <div class="p-6 text-gray-900">
                             <h3 class="mb-6 text-xl font-semibold">Latest Orders</h3>
                             <div class="overflow-x-auto">
-                                <table class="min-w-full divide-y divide-gray-200">
-                                    <thead class="bg-gray-50">
-                                        <tr>
-                                            <th
-                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                Order ID</th>
-                                            <th
-                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                Product</th>
-                                            <th
-                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                Quantity</th>
-                                            <th
-                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                Total Price</th>
-                                            <th
-                                                class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
-                                                Status</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody class="divide-y divide-gray-200 bg-white">
-                                        <tr>
-                                            <td class="whitespace-nowrap px-6 py-4">#1001</td>
-                                            <td class="whitespace-nowrap px-6 py-4">T-Shirt</td>
-                                            <td class="whitespace-nowrap px-6 py-4">2</td>
-                                            <td class="whitespace-nowrap px-6 py-4">$40.00</td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <span
-                                                    class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                                                    Shipped
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="whitespace-nowrap px-6 py-4">#1002</td>
-                                            <td class="whitespace-nowrap px-6 py-4">Jeans</td>
-                                            <td class="whitespace-nowrap px-6 py-4">1</td>
-                                            <td class="whitespace-nowrap px-6 py-4">$50.00</td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <span
-                                                    class="inline-flex rounded-full bg-yellow-100 px-2 text-xs font-semibold leading-5 text-yellow-800">
-                                                    Pending
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="whitespace-nowrap px-6 py-4">#1003</td>
-                                            <td class="whitespace-nowrap px-6 py-4">Jacket</td>
-                                            <td class="whitespace-nowrap px-6 py-4">1</td>
-                                            <td class="whitespace-nowrap px-6 py-4">$120.00</td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <span
-                                                    class="inline-flex rounded-full bg-red-100 px-2 text-xs font-semibold leading-5 text-red-800">
-                                                    Cancelled
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="whitespace-nowrap px-6 py-4">#1004</td>
-                                            <td class="whitespace-nowrap px-6 py-4">Dress</td>
-                                            <td class="whitespace-nowrap px-6 py-4">3</td>
-                                            <td class="whitespace-nowrap px-6 py-4">$90.00</td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <span
-                                                    class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                                                    Delivered
-                                                </span>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td class="whitespace-nowrap px-6 py-4">#1005</td>
-                                            <td class="whitespace-nowrap px-6 py-4">Shoes</td>
-                                            <td class="whitespace-nowrap px-6 py-4">2</td>
-                                            <td class="whitespace-nowrap px-6 py-4">$80.00</td>
-                                            <td class="whitespace-nowrap px-6 py-4">
-                                                <span
-                                                    class="inline-flex rounded-full bg-green-100 px-2 text-xs font-semibold leading-5 text-green-800">
-                                                    Shipped
-                                                </span>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                @if ($orders->isEmpty())
+                                    <p>No recent orders found.</p>
+                                @else
+                                    <table class="min-w-full divide-y divide-gray-200">
+                                        <thead class="bg-gray-50">
+                                            <tr>
+                                                <th
+                                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                    Order ID
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                    Product
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                    Quantity
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                    Total Price
+                                                </th>
+                                                <th
+                                                    class="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500">
+                                                    Status
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="divide-y divide-gray-200 bg-white">
+                                            @foreach ($orders as $order)
+                                                <tr>
+                                                    <td class="whitespace-nowrap px-6 py-4">#{{ $order->id }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $order->product->name }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">{{ $order->quantity }}</td>
+                                                    <td class="whitespace-nowrap px-6 py-4">${{ $order->total_price }}
+                                                    </td>
+                                                    <td class="whitespace-nowrap px-6 py-4">
+                                                        <span
+                                                            class="@if ($order->status === 'Pending') bg-yellow-100 text-yellow-800
+                                                                @elseif ($order->status === 'Cancelled') bg-red-100 text-red-800
+                                                                @elseif ($order->status === 'Shipping') bg-blue-100 text-blue-800
+                                                                @elseif ($order->status === 'Delivered') bg-green-100 text-green-800 @endif inline-flex rounded-full px-4 py-2 font-semibold leading-5">
+                                                            {{ $order->status }}
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                @endif
                             </div>
                         </div>
                     </div>

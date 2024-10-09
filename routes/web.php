@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
 use App\Http\Controllers\ClothingBusiness\OrderController as ClothingBusinessOrderController;
+use App\Http\Controllers\Customer\CustomerHomeController;
 use App\Http\Controllers\Customer\CustomerProductController;
 use App\Http\Controllers\Customer\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -41,9 +42,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
 
 
 Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer.')->group(function () {
-    Route::get('/home', function () {
-        return view('customer.home');
-    })->name('home');
+    Route::get('/home', [CustomerHomeController::class, 'index'])->name('home');
     Route::get('/products', [CustomerProductController::class, 'index'])->name('products.index');
     Route::get('/products/{product}', [CustomerProductController::class, 'show'])->name('products.show');
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
