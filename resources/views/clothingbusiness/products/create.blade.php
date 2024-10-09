@@ -12,20 +12,38 @@
                     <form action="{{ route('clothingbusiness.products.store') }}" method="POST"
                         enctype="multipart/form-data">
                         @csrf
+
+                        <!-- Product Name -->
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
                             <input type="text" name="name" id="name"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                         </div>
 
+                        <!-- Description -->
+                        <div class="mb-4">
+                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
+                            <textarea name="description" id="description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea>
+                        </div>
+
+                        <!-- Price -->
                         <div class="mb-4">
                             <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                            <input type="number" name="price" id="price"
+                            <input type="number" name="price" id="price" step="0.01"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                         </div>
 
+                        <!-- Stock Quantity -->
                         <div class="mb-4">
-                            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
+                            <label for="stock_quantity" class="block text-sm font-medium text-gray-700">Stock
+                                Quantity</label>
+                            <input type="number" name="stock_quantity" id="stock_quantity"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-4">
+                            <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
                             <select name="category_id" id="category_id"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                                 @foreach ($categories as $category)
@@ -34,21 +52,24 @@
                             </select>
                         </div>
 
+                        <!-- Size -->
+                        <div class="mb-4">
+                            <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
+                            <input type="text" name="size" id="size"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                        </div>
+
+                        <!-- Color -->
+                        <div class="mb-4">
+                            <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
+                            <input type="text" name="color" id="color"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                        </div>
+
+                        <!-- Product Image -->
                         <div class="mb-4">
                             <label for="image" class="block text-sm font-medium text-gray-700">Product Image</label>
                             <input type="file" name="image" id="image" class="mt-1 block w-full">
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
-                            <textarea name="description" id="description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"></textarea>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="stock_quantity" class="block text-sm font-medium text-gray-700">Stock
-                                Quantity</label>
-                            <input type="number" name="stock_quantity" id="stock_quantity"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
                         </div>
 
                         <div class="mb-4 flex justify-between">

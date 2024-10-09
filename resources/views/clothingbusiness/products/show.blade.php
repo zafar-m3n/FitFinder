@@ -7,45 +7,84 @@
 
     <div class="py-12">
         <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
-            <div class="overflow-hidden bg-white shadow-sm sm:rounded-lg">
+            <div class="overflow-hidden bg-white shadow-md sm:rounded-lg">
                 <div class="p-6 text-gray-900">
-                    <h3 class="mb-4 text-2xl font-semibold">{{ $product->name }}</h3>
-
-                    @if ($product->image)
-                        <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}" class="mb-4"
-                            width="200">
-                    @endif
-
-                    <div class="mb-4">
-                        <strong>Price:</strong> ${{ $product->price }}
+                    <div class="mb-6 flex items-center">
+                        <h3 class="text-3xl font-bold">{{ $product->name }}</h3>
                     </div>
 
-                    <div class="mb-4">
-                        <strong>Category:</strong> {{ $product->category->name }}
+                    <div class="flex items-start justify-between">
+                        <div class="mb-6 flex justify-center">
+                            @if ($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    class="rounded-lg shadow-lg" width="400">
+                            @else
+                                <p>No image available for this product.</p>
+                            @endif
+                        </div>
+
+                        <!-- Product Details -->
+                        <div class="grid grid-cols-1 gap-6 md:grid-cols-3">
+                            <!-- Price -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Price:</strong>
+                                <span class="text-2xl font-semibold text-green-600">${{ $product->price }}</span>
+                            </div>
+
+                            <!-- Category -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Category:</strong>
+                                <span
+                                    class="text-lg">{{ $product->category ? $product->category->name : 'No Category' }}</span>
+                            </div>
+
+                            <!-- Description -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Description:</strong>
+                                <p>{{ $product->description ?? 'No description available.' }}</p>
+                            </div>
+
+                            <!-- Stock Quantity -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Stock Quantity:</strong>
+                                <span class="text-lg">{{ $product->stock_quantity }}</span>
+                            </div>
+
+                            <!-- Size -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Size:</strong>
+                                <span class="text-lg">{{ $product->size ?? 'N/A' }}</span>
+                            </div>
+
+                            <!-- Color -->
+                            <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
+                                <strong class="mb-1 block text-gray-600">Color:</strong>
+                                <span class="text-lg">{{ $product->color ?? 'N/A' }}</span>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="mb-4">
-                        <strong>Description:</strong> {{ $product->description ?? 'No description available.' }}
-                    </div>
-
-                    <div class="mb-4">
-                        <strong>Stock Quantity:</strong> {{ $product->stock_quantity }}
-                    </div>
-
-                    <div class="flex justify-between">
+                    <!-- Action Buttons -->
+                    <div class="mt-8 flex justify-end space-x-4">
                         <a href="{{ route('clothingbusiness.products.edit', $product) }}"
-                            class="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600">Edit Product</a>
+                            class="rounded bg-yellow-500 px-4 py-2 text-white hover:bg-yellow-600">
+                            Edit Product
+                        </a>
 
                         <form action="{{ route('clothingbusiness.products.destroy', $product) }}" method="POST"
                             class="inline-block">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
-                                onclick="return confirm('Are you sure?')">Delete</button>
+                                onclick="return confirm('Are you sure?')">
+                                Delete
+                            </button>
                         </form>
 
                         <a href="{{ route('clothingbusiness.products.index') }}"
-                            class="rounded bg-gray-500 px-4 py-2 text-white">Back to Products</a>
+                            class="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600">
+                            Back to Products
+                        </a>
                     </div>
                 </div>
             </div>

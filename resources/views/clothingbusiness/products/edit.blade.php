@@ -14,52 +14,72 @@
                         @csrf
                         @method('PUT')
 
+                        <!-- Product Name -->
                         <div class="mb-4">
                             <label for="name" class="block text-sm font-medium text-gray-700">Product Name</label>
-                            <input type="text" name="name" id="name"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                value="{{ $product->name }}" required>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
-                            <input type="number" name="price" id="price"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                value="{{ $product->price }}" required>
-                        </div>
-
-                        <div class="mb-4">
-                            <label for="category" class="block text-sm font-medium text-gray-700">Category</label>
-                            <select name="category_id" id="category_id"
+                            <input type="text" name="name" id="name" value="{{ $product->name }}"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
-                                @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}"
-                                        {{ $category->id == $product->category_id ? 'selected' : '' }}>
-                                        {{ $category->name }}</option>
-                                @endforeach
-                            </select>
                         </div>
 
-                        <div class="mb-4">
-                            <label for="image" class="block text-sm font-medium text-gray-700">Product Image</label>
-                            <input type="file" name="image" id="image" class="mt-1 block w-full">
-                            @if ($product->image)
-                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
-                                    width="100" class="mt-2">
-                            @endif
-                        </div>
-
+                        <!-- Description -->
                         <div class="mb-4">
                             <label for="description" class="block text-sm font-medium text-gray-700">Description</label>
                             <textarea name="description" id="description" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">{{ $product->description }}</textarea>
                         </div>
 
+                        <!-- Price -->
+                        <div class="mb-4">
+                            <label for="price" class="block text-sm font-medium text-gray-700">Price</label>
+                            <input type="number" name="price" id="price" step="0.01"
+                                value="{{ $product->price }}"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                        </div>
+
+                        <!-- Stock Quantity -->
                         <div class="mb-4">
                             <label for="stock_quantity" class="block text-sm font-medium text-gray-700">Stock
                                 Quantity</label>
                             <input type="number" name="stock_quantity" id="stock_quantity"
-                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm"
-                                value="{{ $product->stock_quantity }}" required>
+                                value="{{ $product->stock_quantity }}"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                        </div>
+
+                        <!-- Category -->
+                        <div class="mb-4">
+                            <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
+                            <select name="category_id" id="category_id"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm" required>
+                                @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}"
+                                        {{ $category->id == $product->category_id ? 'selected' : '' }}>
+                                        {{ $category->name }}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <!-- Size -->
+                        <div class="mb-4">
+                            <label for="size" class="block text-sm font-medium text-gray-700">Size</label>
+                            <input type="text" name="size" id="size" value="{{ $product->size }}"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                        </div>
+
+                        <!-- Color -->
+                        <div class="mb-4">
+                            <label for="color" class="block text-sm font-medium text-gray-700">Color</label>
+                            <input type="text" name="color" id="color" value="{{ $product->color }}"
+                                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                        </div>
+
+                        <!-- Product Image -->
+                        <div class="mb-4">
+                            <label for="image" class="block text-sm font-medium text-gray-700">Product Image</label>
+                            <input type="file" name="image" id="image" class="mt-1 block w-full">
+                            @if ($product->image)
+                                <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
+                                    class="mt-2" width="100">
+                            @endif
                         </div>
 
                         <div class="mb-4 flex justify-between">
