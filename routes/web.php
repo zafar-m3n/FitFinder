@@ -2,10 +2,12 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\NewsletterController;
 use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
+use App\Http\Controllers\ClothingBusiness\HomeController as ClothingBusinessHomeController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
 use App\Http\Controllers\ClothingBusiness\OrderController as ClothingBusinessOrderController;
 use App\Http\Controllers\Customer\CustomerHomeController;
@@ -23,9 +25,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/users', [UserController::class, 'index'])->name('admin.users.index');
     Route::get('/admin/users/create', [UserController::class, 'create'])->name('admin.users.create');
     Route::post('/admin/users', [UserController::class, 'store'])->name('admin.users.store');
@@ -54,10 +54,7 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
 });
 
 Route::middleware(['auth', 'role:clothingbusiness'])->prefix('clothingbusiness')->name('clothingbusiness.')->group(function () {
-    Route::get('/home', function () {
-        return view('clothingbusiness.home');
-    })->name('home');
-
+    Route::get('/home', [ClothingBusinessHomeController::class, 'index'])->name('home');
     Route::resource('products', ProductController::class);
     Route::get('/about/edit', [AboutController::class, 'edit'])->name('about.edit');
     Route::post('/about/update', [AboutController::class, 'update'])->name('about.update');
