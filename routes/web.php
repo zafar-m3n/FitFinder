@@ -9,6 +9,7 @@ use App\Http\Controllers\ClothingBusiness\ProductController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
 use App\Http\Controllers\ClothingBusiness\OrderController as ClothingBusinessOrderController;
 use App\Http\Controllers\Customer\CustomerHomeController;
+use App\Http\Controllers\Customer\PreferenceController;
 use App\Http\Controllers\Customer\CustomerProductController;
 use App\Http\Controllers\Customer\OrderController;
 use Illuminate\Support\Facades\Route;
@@ -48,6 +49,8 @@ Route::middleware(['auth', 'role:customer'])->prefix('customer')->name('customer
     Route::post('/orders', [OrderController::class, 'store'])->name('orders.store');
     Route::get('/orders', [OrderController::class, 'index'])->name('orders.index');
     Route::patch('/orders/{order}/cancel', [OrderController::class, 'cancel'])->name('orders.cancel');
+    Route::get('/preferences', [PreferenceController::class, 'edit'])->name('preferences.edit');
+    Route::post('/preferences', [PreferenceController::class, 'update'])->name('preferences.update');
 });
 
 Route::middleware(['auth', 'role:clothingbusiness'])->prefix('clothingbusiness')->name('clothingbusiness.')->group(function () {

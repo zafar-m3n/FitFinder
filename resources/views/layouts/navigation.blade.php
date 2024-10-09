@@ -33,7 +33,7 @@
                             <x-nav-link :href="route('customer.home')" :active="request()->routeIs('customer.home')">
                                 {{ __('Home') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('customer.preferences.edit')" :active="request()->routeIs('customer.preferences.edit')">
                                 {{ __('Preferences') }}
                             </x-nav-link>
                             <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
@@ -60,7 +60,7 @@
                         <x-nav-link :href="route('customer.home')" :active="request()->routeIs('customer.home')">
                             {{ __('Home') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
+                        <x-nav-link :href="route('customer.preferences.edit')" :active="request()->routeIs('customer.preferences.edit')">
                             {{ __('Preferences') }}
                         </x-nav-link>
                         <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
@@ -165,7 +165,7 @@
                     <x-responsive-nav-link :href="route('customer.home')" :active="request()->routeIs('customer.home')">
                         {{ __('Home') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('customer.preferences.edit')" :active="request()->routeIs('customer.preferences.edit')">
                         {{ __('Preferences') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
@@ -192,7 +192,7 @@
                 <x-responsive-nav-link :href="route('customer.home')" :active="request()->routeIs('customer.home')">
                     {{ __('Home') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
+                <x-responsive-nav-link :href="route('customer.preferences.edit')" :active="request()->routeIs('customer.preferences.edit')">
                     {{ __('Preferences') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
