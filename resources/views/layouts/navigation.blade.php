@@ -40,9 +40,6 @@
                                 {{ __('Products') }}
                             </x-nav-link>
                             <x-nav-link href="#">
-                                {{ __('Customer Support') }}
-                            </x-nav-link>
-                            <x-nav-link href="#">
                                 {{ __('Orders') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'clothingbusiness')
@@ -70,7 +67,7 @@
                             {{ __('Products') }}
                         </x-nav-link>
                         <x-nav-link href="#">
-                            {{ __('Customer Support') }}
+                            {{ __('Orders') }}
                         </x-nav-link>
                     @endauth
                 </div>
@@ -175,9 +172,6 @@
                         {{ __('Products') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link href="#">
-                        {{ __('Customer Support') }}
-                    </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
                         {{ __('Orders') }}
                     </x-responsive-nav-link>
                 @elseif (Auth::user()->role === 'ClothingBusiness')
@@ -204,8 +198,8 @@
                 <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                     {{ __('Products') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link href="#">
-                    {{ __('Customer Support') }}
+                <x-responsive-nav-link>
+                    {{ __('Orders') }}
                 </x-responsive-nav-link>
             @endauth
         </div>
