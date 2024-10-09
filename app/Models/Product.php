@@ -23,6 +23,7 @@ class Product extends Model
         'size',
         'color',
         'image',
+        'created_by',
     ];
 
     public function category()
@@ -30,4 +31,8 @@ class Product extends Model
         return $this->belongsTo(Category::class);
     }
 
+    public function creator()
+    {
+        return $this->belongsTo(User::class, 'created_by');
+    }
 }
