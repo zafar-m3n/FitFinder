@@ -61,6 +61,8 @@
                                 <strong class="mb-1 block text-gray-600">Color:</strong>
                                 <span class="text-lg">{{ $product->color ?? 'N/A' }}</span>
                             </div>
+
+                            <!-- Seller -->
                             <div class="rounded-lg bg-gray-100 p-4 shadow-sm">
                                 <strong class="mb-1 block text-gray-600">Seller:</strong>
                                 <span class="text-lg">{{ $product->creator->name ?? 'N/A' }}</span>
@@ -68,14 +70,29 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 flex justify-end space-x-4">
-                        <a href="{{ route('customer.products.index') }}"
-                            class="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600">
-                            Back to Products
-                        </a>
-                        <a href="#" class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
-                            Place Order
-                        </a>
+                    <!-- Order Form -->
+                    <div class="mt-8">
+                        <form action="{{ route('customer.orders.store') }}" method="POST">
+                            @csrf
+                            <input type="hidden" name="product_id" value="{{ $product->id }}">
+
+                            <div class="mb-4">
+                                <label for="quantity" class="block text-sm font-medium text-gray-700">Quantity</label>
+                                <input type="number" name="quantity" id="quantity" min="1" value="1"
+                                    class="mt-1 block w-full rounded-md border-gray-300 shadow-sm">
+                            </div>
+
+                            <div class="flex justify-end space-x-4">
+                                <a href="{{ route('customer.products.index') }}"
+                                    class="rounded bg-gray-500 px-4 py-2 text-white hover:bg-gray-600">
+                                    Back to Products
+                                </a>
+                                <button type="submit"
+                                    class="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600">
+                                    Place Order
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
