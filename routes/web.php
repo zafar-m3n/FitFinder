@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\PromotionController;
 use App\Http\Controllers\ClothingBusiness\ProductController;
 use App\Http\Controllers\ClothingBusiness\AboutController;
 use App\Http\Controllers\Customer\CustomerProductController;
+use App\Http\Controllers\Customer\OrderController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {

@@ -39,7 +39,7 @@
                             <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                                 {{ __('Products') }}
                             </x-nav-link>
-                            <x-nav-link href="#">
+                            <x-nav-link :href="route('customer.orders.index')" :active="request()->routeIs('customer.orders.index')">
                                 {{ __('Orders') }}
                             </x-nav-link>
                         @elseif (Auth::user()->role === 'clothingbusiness')
@@ -66,7 +66,7 @@
                         <x-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                             {{ __('Products') }}
                         </x-nav-link>
-                        <x-nav-link href="#">
+                        <x-nav-link :href="route('customer.orders.index')" :active="request()->routeIs('customer.orders.index')">
                             {{ __('Orders') }}
                         </x-nav-link>
                     @endauth
@@ -171,7 +171,7 @@
                     <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                         {{ __('Products') }}
                     </x-responsive-nav-link>
-                    <x-responsive-nav-link href="#">
+                    <x-responsive-nav-link :href="route('customer.orders.index')" :active="request()->routeIs('customer.orders.index')">
                         {{ __('Orders') }}
                     </x-responsive-nav-link>
                 @elseif (Auth::user()->role === 'ClothingBusiness')
@@ -198,7 +198,7 @@
                 <x-responsive-nav-link :href="route('customer.products.index')" :active="request()->routeIs('customer.products.index')">
                     {{ __('Products') }}
                 </x-responsive-nav-link>
-                <x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('customer.orders.index')" :active="request()->routeIs('customer.orders.index')">
                     {{ __('Orders') }}
                 </x-responsive-nav-link>
             @endauth
